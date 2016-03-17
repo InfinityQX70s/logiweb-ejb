@@ -1,0 +1,7 @@
+*~
+/.idea
+/target
+.gitignore~
+.Trash-*
+logiweb-ejb.iml
+target
