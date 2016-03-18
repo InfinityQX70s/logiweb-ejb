@@ -10,13 +10,19 @@
     <script type="text/javascript" src="/logiweb-ejb/js/materialize.min.js"></script>
 </h:head>
 <h:body style="background-image: url(/logiweb-ejb/image/background.png)">
-    <f:view beforePhase="#{controller.beforePhase}">
+    <f:view beforePhase="#{driverController.beforePhase}">
         <div class="card white" style="width: 400px; top: 150px; margin-left:440px;">
             <div class="card-content black-text">
+                <blockquote>
+                    <p>Driver number <h:outputText value="#{driverController.number}"/> are currently login</p>
+                    <p>Driver current status is "<h:outputText value="#{driverController.curentStatus}"/>"</p>
+                </blockquote>
                 <h:form>
-                    <p:commandButton value="Driver" action="#{controller.driver}"/>
-                    <p:commandButton value="Cargo" action="#{controller.cargo}"/>
-                    <p:commandButton value="Logout" action="#{controller.logoutDriver}"/>
+                    <h:panelGrid columns="2" cellpadding="5" style="margin-left:50px;">
+                        <p:commandButton value="Driver" action="#{driverController.redirectDriver}"/>
+                        <p:commandButton value="Cargo" action="#{cargoController.redirectCargo}"/>
+                    </h:panelGrid>
+                    <p:commandButton value="Logout" action="#{driverController.logoutDriver}" style="margin-left:140px;"/>
                 </h:form>
             </div>
         </div>

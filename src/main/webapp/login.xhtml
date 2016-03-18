@@ -11,17 +11,19 @@
     <script type="text/javascript" src="/logiweb-ejb/js/materialize.min.js"></script>
 </h:head>
 <h:body style="background-image: url(/logiweb-ejb/image/background.png)">
+    <f:view beforePhase="#{driverController.beforeLogin}">
         <div class="card white" style="width: 400px; top: 150px; margin-left:440px;">
             <div class="card-content black-text">
                 <h:form>
                     <h:panelGrid>
-                        <h:outputText id="display" value="#{controller.message}"/>
+                        <h:outputText id="display" value="#{driverController.message}"/>
                         <h:outputLabel for="number" value="Driver Number:"/>
-                        <p:inputText id="number" required="true" value="#{controller.number}"/>
-                        <p:commandButton value="Login" update="display" action="#{controller.loginDriver}"/>
+                        <p:inputText id="number" required="true" value="#{driverController.number}"/>
+                        <p:commandButton value="Login" update="display" action="#{driverController.loginDriver}" style="margin-left:260px;"/>
                     </h:panelGrid>
                 </h:form>
             </div>
         </div>
+    </f:view>
 </h:body>
 </html>

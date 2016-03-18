@@ -12,7 +12,7 @@ import javax.ws.rs.client.WebTarget;
  * Created by infinity on 16.03.16.
  */
 @Stateless
-public class DriverStatusServiceFacadeBean {
+public class DriverStatusBean {
 
     private static Client client = ClientBuilder.newClient();
 
