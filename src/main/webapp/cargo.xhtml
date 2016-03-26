@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui" >
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
     <link type="text/css" rel="stylesheet" href="/logiweb-ejb/css/materialize.css" media="screen,projection"/>
     <script type="text/javascript" src="/logiweb-ejb/js/jquery-2.1.1.min.js"></script>
@@ -15,19 +15,30 @@
         <div class="card white" style="width: 400px; top: 150px; margin-left:440px;">
             <div class="card-content black-text">
                 <h:form>
-                    <h:panelGrid>
-                        <h:outputText id="display" value="#{cargoController.message}" />
-                        <h:panelGrid columns="2" cellpadding="5" style="margin-left:20px;">
-                            <h:outputText value="Cargo Name:" />
-                            <h:outputText id="cargo" value="#{cargoController.name}" style="font-weight: bold"/>
-                            <h:outputText value="City:" />
-                            <h:outputText id="city" value="#{cargoController.city}" style="font-weight: bold"/>
-                            <h:outputText value="Type:" />
-                            <h:outputText id="type" value="#{cargoController.type}" style="font-weight: bold"/>
-                        </h:panelGrid>
-                        <p:commandButton value="Submit" update="display cargo city type"  actionListener="#{cargoController.setCargoStatus}" style="margin-left:140px;"/>
-                        <button  class="btn waves-effect waves-light" style="margin-left:140px;" onclick="window.history.back();">Back</button>
+                    <h:outputText id="display" value="#{cargoController.message}"/>
+                    <h:panelGrid style="margin-left:20px;" rendered="#{cargoController.type eq 'loaded'}">
+                        <p:row>
+                            <h:outputText value="Next action is load #{cargoController.name} in #{cargoController.city}"
+                                          style="font-weight: bold"/>
+                            <p:commandButton value="Done" update="display"
+                                             actionListener="#{cargoController.setCargoStatus}"
+                                             style="margin-left:20px;"/>
+                        </p:row>
                     </h:panelGrid>
+                    <h:panelGrid columns="2" style="margin-left:20px;"
+                                 rendered="#{cargoController.type eq 'delivered'}">
+                        <p:row>
+                            <h:outputText
+                                    value="Next action is deliver #{cargoController.name} to #{cargoController.city}"
+                                    style="font-weight: bold"/>
+                            <p:commandButton value="Done" update="display"
+                                             actionListener="#{cargoController.setCargoStatus}"
+                                             style="margin-left:20px;"/>
+                        </p:row>
+                    </h:panelGrid>
+                    <button class="btn waves-effect waves-light" style="margin-left:140px;"
+                            onclick="window.history.back();">Back
+                    </button>
                 </h:form>
             </div>
         </div>

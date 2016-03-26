@@ -13,9 +13,5 @@
             <from-outcome>cargo</from-outcome>
             <to-view-id>/cargo.xhtml</to-view-id>
         </navigation-case>
-        <navigation-case>
-            <from-outcome>driver</from-outcome>
-            <to-view-id>/driver.xhtml</to-view-id>
-        </navigation-case>
     </navigation-rule>
 </faces-config>

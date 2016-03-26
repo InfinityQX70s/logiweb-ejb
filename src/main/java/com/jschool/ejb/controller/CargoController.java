@@ -90,8 +90,7 @@ public class CargoController {
         }
         JsonResponse jsonResponse = driverStatusBean.getResponse(driver,"order");
         if (jsonResponse.getStatus().equals("done")){
-            session.invalidate();
-            ec.redirect("login.xhtml");
+            ec.redirect("select.xhtml");
         }else {
             number = jsonResponse.getCargoNumber();
             name = jsonResponse.getCargoName();

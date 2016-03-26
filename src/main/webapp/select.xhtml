@@ -18,11 +18,22 @@
                     <p>Driver current status is "<h:outputText value="#{driverController.curentStatus}"/>"</p>
                 </blockquote>
                 <h:form>
-                    <h:panelGrid columns="2" cellpadding="5" style="margin-left:50px;">
-                        <p:commandButton value="Driver" action="#{driverController.redirectDriver}"/>
-                        <p:commandButton value="Cargo" action="#{cargoController.redirectCargo}"/>
+                    <h:panelGrid rendered="#{driverController.curentStatus eq 'shift'}">
+                        <p:row>
+                            <p:commandButton value="Driving" action="#{driverController.setDriverStatusDriving}"/>
+                            <p:commandButton value="Order List" action="#{cargoController.redirectCargo}" style="margin-left:20px;"/>
+                            <p:commandButton value="Logout" action="#{driverController.logoutDriver}"
+                                             style="margin-left:20px;"/>
+                        </p:row>
                     </h:panelGrid>
-                    <p:commandButton value="Logout" action="#{driverController.logoutDriver}" style="margin-left:140px;"/>
+                    <h:panelGrid rendered="#{driverController.curentStatus eq 'driving'}">
+                        <p:row>
+                            <p:commandButton value="Shift" action="#{driverController.setDriverStatusShift}"/>
+                            <p:commandButton value="Order List" action="#{cargoController.redirectCargo}" style="margin-left:20px;"/>
+                            <p:commandButton value="Logout" action="#{driverController.logoutDriver}"
+                                             style="margin-left:20px;"/>
+                        </p:row>
+                    </h:panelGrid>
                 </h:form>
             </div>
         </div>

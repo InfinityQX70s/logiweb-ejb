@@ -48,10 +48,6 @@ public class DriverController {
         this.curentStatus = curentStatus;
     }
 
-    public String redirectDriver(){
-        return "driver?faces-redirect=true";
-    }
-
     public void beforePhase(PhaseEvent event) throws IOException {
         HttpSession session = getSession();
         String driver = (String) session.getAttribute("driver");
