@@ -17,7 +17,7 @@ public class DriverStatusBean {
     private static Client client = ClientBuilder.newClient();
 
     public JsonResponse getResponse(String number, String status) {
-        String uri = "http://localhost:8081/rs";
+        String uri = "http://logiweb.herokuapp.com/rs";
         WebTarget target = client.target(uri);
         if (status.isEmpty())
             target = target.path("driver/" + number);

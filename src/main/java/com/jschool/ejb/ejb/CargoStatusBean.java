@@ -17,7 +17,7 @@ public class CargoStatusBean {
     private Client client = ClientBuilder.newClient();
 
     private JsonResponse getResponse(String number, String status){
-        String uri = "http://localhost:8081/rs";
+        String uri = "http://logiweb.herokuapp.com/rs";
         WebTarget target = client.target(uri);
         target = target.path("cargo/"+number+"/"+status);
         Invocation.Builder builder = target.request();
